@@ -8,6 +8,8 @@ import subjectsRouter from './routes/subjects.js';
 import securityMiddleware from './middleware/security.js';
 import { auth } from './lib/auth.js';
 import { toNodeHandler } from "better-auth/node";
+import userRouter from './routes/users.js';
+import classesRouter from './routes/classes.js';
 
 const app = express();
 const PORT = 8000;
@@ -25,6 +27,8 @@ app.use(express.json());
 app.use(securityMiddleware);
 
 app.use("/api/subjects", subjectsRouter);
+app.use("/api/users", userRouter);
+app.use("/api/classes", classesRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello, World!");
