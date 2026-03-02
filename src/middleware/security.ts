@@ -1,5 +1,5 @@
 import { Request ,Response, NextFunction } from "express";
-import aj from "../config/arcjet";
+import aj from "../config/arcjet.js";
 import {slidingWindow} from "@arcjet/node";
 const securityMiddleware = async (req: Request, res: Response, next: NextFunction) => {
     if(process.env.NODE_ENV === "test") return next();
